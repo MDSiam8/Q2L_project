@@ -7,6 +7,7 @@ import Model from './Model'
 import { Suspense } from 'react'
 import Placeholder from './Placeholder'
 import Hamburger from './Hamburger'
+import Table from './Table'
 import Fox from './Fox'
 import Pipette
     from './Pipette'
@@ -29,19 +30,21 @@ export default function Experience() {
         <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} shadow-normalBias={.04} />
         <ambientLight intensity={0.5} />
 
-        <mesh receiveShadow position-y={- 1} rotation-x={- Math.PI * 0.5} scale={10}>
+        <mesh receiveShadow position-y={- 1} rotation-x={- Math.PI * 0.5} scale={15}>
             <planeGeometry />
             <meshStandardMaterial color="greenyellow" />
         </mesh>
 
         {/* <primitive object={ model.scene } scale={ 5 } position-y={-1} /> */}
-        <Suspense fallback={<Placeholder position-y={.5} scale={[2, 3, 2]} />}> 
-            <Hamburger scale={.35} />
-            <PivotControls anchor={[0,0,0]}>
-                <Pipette scale={0.9} position-y={10} />
+        <Suspense fallback={<Placeholder position-y={.5} scale={[2, 3, 2]} />}>
+            {/* <Hamburger scale={.35} /> */}
+            <PivotControls anchor={[0, 0, 0]}>
+                {/* <Pipette scale={0.9} position-y={10} /> */}
             </PivotControls>
         </Suspense>
-
+        <PivotControls anchor={[0,0,0]} scale={3}>
+            <Table scale={10}></Table>
+        </PivotControls>
         <Fox />
     </>
 }
