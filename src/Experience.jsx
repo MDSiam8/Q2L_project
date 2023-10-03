@@ -9,6 +9,7 @@ import Placeholder from './Placeholder'
 import Hamburger from './Hamburger'
 import Table from './Table'
 import Fox from './Fox'
+import { Html } from '@react-three/drei'
 // import { useRef } from 'react'
 import Pipette
     from './Pipette'
@@ -23,6 +24,7 @@ export default function Experience() {
     //         loader.setDRACOLoader(dracoLoader);
     //     });
     const chemistryRef = useRef();
+    const htmlRef = useRef();
     return <>
 
 
@@ -45,12 +47,23 @@ export default function Experience() {
                 {/* <Pipette scale={0.9} position-y={10} /> */}
             </PivotControls>
         </Suspense>
-        <Table scale={13} position-y={-1}></Table>
+        <Table scale={13} position-y={-1}>
+
+        </Table>
         <PivotControls>
             <Fox />
         </PivotControls>
-        <PivotControls anchor={[0, 0, 0]} scale={3}>
-            <ChemistryElements useRef={chemistryRef} scale={2} onClick={(e) => console.log(chemistryRef.current)}></ChemistryElements>
-        </PivotControls>
+        {/* <PivotControls anchor={[0, 0, 0]} scale={3}> */}
+        <ChemistryElements
+            position={[0, 4.6, 0]}
+             useRef={chemistryRef} 
+            scale={2}
+        //  onClick={(e) => console.log(chemistryRef.current)}
+        >
+        </ChemistryElements>
+        {/* </PivotControls> */}
+        <Html wrapperClass={"label"} position={[0, 8, 0]} center useRef={htmlRef}>
+            Welcome to our very first lab! To begin, click on any of the objects...
+        </Html>
     </>
 }

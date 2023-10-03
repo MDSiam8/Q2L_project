@@ -18,13 +18,6 @@ export default function Fox() {
         return () => {
             action.fadeOut(0.5);
         }
-        // action.play();
-        // animations.actions.Run.play()
-
-        // window.setTimeout(() => {
-        //     animations.actions.Walk.play()
-        //     animations.actions.Walk.crossFadeFrom(animations.actions.Run, 1)
-        // }, 2000);
     }, [ animationName ]);
 
     return <primitive
