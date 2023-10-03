@@ -4,13 +4,15 @@ import { Perf } from 'r3f-perf'
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import Model from './Model'
-import { Suspense } from 'react'
+import { Suspense, useRef } from 'react'
 import Placeholder from './Placeholder'
 import Hamburger from './Hamburger'
 import Table from './Table'
 import Fox from './Fox'
+// import { useRef } from 'react'
 import Pipette
     from './Pipette'
+import ChemistryElements from './ChemistryElements'
 export default function Experience() {
     // const model = useLoader(
     //     GLTFLoader,
@@ -20,8 +22,9 @@ export default function Experience() {
     //         dracoLoader.setDecoderPath('./draco/');
     //         loader.setDRACOLoader(dracoLoader);
     //     });
-
+    const chemistryRef = useRef();
     return <>
+
 
         <Perf position="top-left" />
 
@@ -42,9 +45,12 @@ export default function Experience() {
                 {/* <Pipette scale={0.9} position-y={10} /> */}
             </PivotControls>
         </Suspense>
-        <PivotControls anchor={[0,0,0]} scale={3}>
-            <Table scale={10}></Table>
+        <Table scale={13} position-y={-1}></Table>
+        <PivotControls>
+            <Fox />
         </PivotControls>
-        <Fox />
+        <PivotControls anchor={[0, 0, 0]} scale={3}>
+            <ChemistryElements useRef={chemistryRef} scale={2} onClick={(e) => console.log(chemistryRef.current)}></ChemistryElements>
+        </PivotControls>
     </>
 }

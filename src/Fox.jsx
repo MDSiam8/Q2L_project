@@ -14,6 +14,7 @@ export default function Fox() {
     useEffect(() => {
         const action = animations.actions[animationName];
         action.reset().fadeIn(0.5).play();
+        console.log(fox.scene);
         return () => {
             action.fadeOut(0.5);
         }
@@ -29,6 +30,7 @@ export default function Fox() {
     return <primitive
         object={fox.scene}
         scale={0.02}
-        position={[- 2.5, 0, 2.5]}
-        rotation-y={0.3} />;
+        // position={[- 2.5, 0, 2.5]}
+        // rotation-y={0.3} 
+        />;
 }
