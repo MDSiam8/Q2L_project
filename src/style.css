@@ -15,10 +15,12 @@ body,
     font-family: Helvetica, Arial;
     /* position: absolute; */
     background: #00000088;
+    width: 600px;
     color: white;
     padding: 15px;
-    white-space: nowrap;
-    /* overflow: ; */
+    white-space: pre-wrap;
+    /* word-wrap: break-word; */
+    overflow: visible;
     border-radius: 30px;
     user-select: none;
 }

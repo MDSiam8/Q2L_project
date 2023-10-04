@@ -1,36 +1,39 @@
 import { OrbitControls, PivotControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-// import { useLoader } from '@react-three/fiber'
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
+import * as THREE from 'three';
 import Model from './Model'
-import { Suspense, useRef } from 'react'
+import { Suspense, useRef, useState } from 'react'
 import Placeholder from './Placeholder'
 import Hamburger from './Hamburger'
 import Table from './Table'
 import Fox from './Fox'
 import { Html } from '@react-three/drei'
-// import { useRef } from 'react'
-import Pipette
-    from './Pipette'
+import Pipette from './Pipette'
 import ChemistryElements from './ChemistryElements'
+import { Float, Text } from '@react-three/drei';
+
 export default function Experience() {
-    // const model = useLoader(
-    //     GLTFLoader,
-    //     './FlightHelmet/glTF/FlightHelmet.gltf',
-    //     (loader) => {
-    //         const dracoLoader = new DRACOLoader();
-    //         dracoLoader.setDecoderPath('./draco/');
-    //         loader.setDRACOLoader(dracoLoader);
-    //     });
-    const chemistryRef = useRef();
-    const htmlRef = useRef();
+    const [htmlText, setHtmlText] = useState("Welcome to our very first lab using React3Fiber! To begin, click on any of the objects...");
+    const controls = useRef();
+
+    const handleChemistryClick = () => {
+        setHtmlText("Wow look at all these lab items! I wonder what they could be used for... How about you try and talk with the friendly fox over there? It might be able to help.");
+
+        const targetPosition = new THREE.Vector3(0, 4.6, 0);
+
+        // Set camera position and lookAt
+        controls.current.target.copy(targetPosition);
+        controls.current.object.position.copy(targetPosition.clone().add(new THREE.Vector3(8, 8, 8))); // Adjust the value for desired distance
+    }
+
+    const handleFoxClick = () => {
+        setHtmlText("Greetings fellow student... I am the wise all-knowing fox -- And using my wisdom, I conclude today that this lab is... finished!");
+    }
+
     return <>
-
-
         <Perf position="top-left" />
 
-        <OrbitControls makeDefault />
+        <OrbitControls ref={controls} makeDefault />
 
         <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} shadow-normalBias={.04} />
         <ambientLight intensity={0.5} />
@@ -40,30 +43,35 @@ export default function Experience() {
             <meshStandardMaterial color="greenyellow" />
         </mesh>
 
-        {/* <primitive object={ model.scene } scale={ 5 } position-y={-1} /> */}
         <Suspense fallback={<Placeholder position-y={.5} scale={[2, 3, 2]} />}>
-            {/* <Hamburger scale={.35} /> */}
-            <PivotControls anchor={[0, 0, 0]}>
-                {/* <Pipette scale={0.9} position-y={10} /> */}
-            </PivotControls>
         </Suspense>
-        <Table scale={13} position-y={-1}>
-
-        </Table>
-        <PivotControls>
-            <Fox />
-        </PivotControls>
-        {/* <PivotControls anchor={[0, 0, 0]} scale={3}> */}
+        <Table scale={13} position-y={-1} />
+        {/* <PivotControls> */}
+            <mesh onClick={handleFoxClick} position={[-2, 5, -5]} rotation-y={13}>
+                <Fox />
+            </mesh>
+        {/* </PivotControls> */}
         <ChemistryElements
             position={[0, 4.6, 0]}
-             useRef={chemistryRef} 
             scale={2}
-        //  onClick={(e) => console.log(chemistryRef.current)}
-        >
-        </ChemistryElements>
-        {/* </PivotControls> */}
-        <Html wrapperClass={"label"} position={[0, 8, 0]} center useRef={htmlRef}>
-            Welcome to our very first lab! To begin, click on any of the objects...
+            onClick={handleChemistryClick}
+        />
+        <Html wrapperClass={"label"} position={[0, 8, 0]} center>
+            {htmlText}
         </Html>
+        <Float speed={5}
+            floatIntensity={2}>
+            <Text
+                font="./bangers-v20-latin-regular.woff"
+                fontSize={2}
+                color="salmon"
+                position-y={10}
+                rotation-y={180}
+                maxWidth={50}
+                textAlign="center"
+            >
+                Demo Lab
+            </Text>
+        </Float>
     </>
 }
