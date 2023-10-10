@@ -2,6 +2,7 @@ import { OrbitControls, PivotControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 import * as THREE from 'three';
 import Model from './Model'
+import TenMlCylinder from './tenMlCylinder';
 import { Suspense, useRef, useState } from 'react'
 import Placeholder from './Placeholder'
 import Hamburger from './Hamburger'
@@ -11,6 +12,7 @@ import { Html } from '@react-three/drei'
 import Pipette from './Pipette'
 import ChemistryElements from './ChemistryElements'
 import { Float, Text } from '@react-three/drei';
+import { VFlask10ML } from './VFlask10ML';
 
 export default function Experience() {
     const [htmlText, setHtmlText] = useState("Welcome to our very first lab using React3Fiber! To begin, click on any of the objects...");
@@ -56,6 +58,14 @@ export default function Experience() {
             scale={2}
             onClick={handleChemistryClick}
         />
+        <TenMlCylinder 
+        position={[0,5,3]}
+        scale={.3}/>
+        <VFlask10ML
+        position={[0, 5, -3]}
+        scale={.5}>
+
+        </VFlask10ML>
         <Html wrapperClass={"label"} position={[0, 8, 0]} center>
             {htmlText}
         </Html>
