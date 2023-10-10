@@ -13,6 +13,7 @@ import Pipette from './Pipette'
 import ChemistryElements from './ChemistryElements'
 import { Float, Text } from '@react-three/drei';
 import { VFlask10ML } from './VFlask10ML';
+import { GlassDropper } from './GlassDropper';
 
 export default function Experience() {
     const [htmlText, setHtmlText] = useState("Welcome to our very first lab using React3Fiber! To begin, click on any of the objects...");
@@ -54,16 +55,19 @@ export default function Experience() {
             </mesh>
         {/* </PivotControls> */}
         <ChemistryElements
-            position={[0, 4.6, 0]}
+            position={[-2, 4.6, 4]}
             scale={2}
             onClick={handleChemistryClick}
         />
         <TenMlCylinder 
-        position={[0,5,3]}
-        scale={.3}/>
+        position={[0,5,1]}
+        scale={.15}
+        onClick={handleChemistryClick}/>
         <VFlask10ML
-        position={[0, 5, -3]}
-        scale={.5}>
+        position={[0, 5, -1]}
+        scale={.3}
+        onClick={handleChemistryClick}>
+        <GlassDropper/>
 
         </VFlask10ML>
         <Html wrapperClass={"label"} position={[0, 8, 0]} center>
