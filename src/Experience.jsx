@@ -14,6 +14,10 @@ import ChemistryElements from './ChemistryElements'
 import { Float, Text } from '@react-three/drei';
 import { VFlask10ML } from './VFlask10ML';
 import { GlassDropper } from './GlassDropper';
+import Balance from './Balance';
+import { Subgrid } from './Subgrid';
+import Calculator from './Calculator';
+import Funnel from './Funnel';
 
 export default function Experience() {
     const [htmlText, setHtmlText] = useState("Welcome to our very first lab using React3Fiber! To begin, click on any of the objects...");
@@ -35,13 +39,12 @@ export default function Experience() {
 
     return <>
         <Perf position="top-left" />
-
         <OrbitControls ref={controls} makeDefault />
 
         <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} shadow-normalBias={.04} />
         <ambientLight intensity={0.5} />
 
-        <mesh receiveShadow position-y={- 1} rotation-x={- Math.PI * 0.5} scale={15}>
+        <mesh receiveShadow position-y={-1} rotation-x={- Math.PI * 0.5} scale={15}>
             <planeGeometry />
             <meshStandardMaterial color="greenyellow" />
         </mesh>
@@ -70,9 +73,13 @@ export default function Experience() {
         <GlassDropper/>
 
         </VFlask10ML>
-        <Html wrapperClass={"label"} position={[0, 8, 0]} center>
+        <Balance/>
+        <Html wrapperClass={"label"} position={[0, 8, 0]} center distanceFactor={15}>
             {htmlText}
         </Html>
+        {/* <Calculator/> */}
+        <Funnel />
+        <GlassDropper />
         <Float speed={5}
             floatIntensity={2}>
             <Text

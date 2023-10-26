@@ -20,3 +20,4 @@ export default function TenMlCylinder(props) {
 }
 
 useGLTF.preload("./10ml_cylinder.glb");
+
