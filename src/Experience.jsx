@@ -22,6 +22,7 @@ import { Flask } from './Flask';
 import { Spatula } from './Spatula';
 import { Beaker } from './Beaker';
 import '../dist/output.css'
+import BalanceWithAnimations from './BalanceWithAnimation';
 export default function Experience() {
     const [htmlText, setHtmlText] = useState("Welcome to our very first lab using React3Fiber! To begin, click on any of the objects...");
     const controls = useRef();
@@ -57,7 +58,7 @@ export default function Experience() {
         <Table scale={13} position-y={-1} />
         {/* <PivotControls> */}
         <mesh onClick={handleFoxClick} position={[-2, 5, -5]} rotation-y={13}>
-            <Fox />
+            {/* <Fox /> */}
         </mesh>
         {/* </PivotControls> */}
         {/* <ChemistryElements
@@ -78,15 +79,15 @@ export default function Experience() {
         <mesh>
             <GlassDropper />
         </mesh>
-        <mesh position={[0, 4.55, 0]} scale={0.8} onClick={handleChemistryClick}>
-            <Balance />
+        <mesh position={[0, 4.55, 0]} scale={1} onClick={handleChemistryClick}>
+            <BalanceWithAnimations />
         </mesh>
         <Html wrapperClass='label' position={[0, 8, 0]} center distanceFactor={15}>
             <link href="./dist/output.css" rel="stylesheet" />
-            <div className={"text-current text-4xl italic font-light z-40 p-5 ring-emerald-400"}>yaee! you made it </div>
+            {/* <div className={"text-current text-4xl italic font-light z-40 p-5 ring-emerald-400"}>yaee! you made it </div> */}
 
             {/* <button className="bg-emerald-400 ">Hello</button> */}
-            <div class="flex justify-center items-center h-20">
+            {/* <div class="flex justify-center items-center h-20">
                 <button class="bg-pink-300 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105 mx-2">
                     Button 1
                 </button>
@@ -106,11 +107,8 @@ export default function Experience() {
                 <button class="bg-yellow-300 text-white font-bold py-2 px-4 rounded-full transition duration-600 transform hover:rotate-90 mx-2">
                     Button 5
                 </button>
-            </div>
-
-
-
-            <p className='to-red-800'>Hello</p>
+            </div> */}
+            {/* <p className='to-red-800'>Hello</p> */}
             <p>
                 {htmlText}
             </p>
@@ -131,6 +129,9 @@ export default function Experience() {
         <mesh position={[1.7, 4.9, -2.4]}>
             <Beaker />
         </mesh>
+        {/* <mesh>
+            <BalanceWithAnimations />
+        </mesh> */}
         <Float speed={5}
             floatIntensity={2}>
             <Text
