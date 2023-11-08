@@ -34,6 +34,86 @@
         "description": "Animation showing us obtaining and folding a weighing paper in half.",
         "objectsInFocus": ["weighing_paper"]  
     },
+    "6": {
+      "stepTitle": "Place Weighing Paper Onto Balance",
+      "description": "A balance with the side window open with a folder filter paper inside it.",
+      "objectsInFocus": ["analytical_balance", "weighing_paper"]  
+    },
+    "7": {
+      "stepTitle": "Add Powder Samle Onto Weighing Paper",
+      "description": "Add the appropriate amount of powder sample onto the weighing paper that is still on the balance.",
+      "objectsInFocus": ["analytical_balance", "weighing_paper", "spatula", "sample"],
+      "mistakes": [ 
+        {
+            "mistakeDescription": "Added incorrect amount of sample",
+            "context": "Analytical balance usage",
+            "correctAnswer": "0.5 grams",
+            "category": "input_mistake",
+            "count": 0,
+            "userAnswers": []
+          }
+      ]
+    },
+    "8": {
+      "stepTitle": "Close Side Window",
+      "description": "Animation showing us closing the side window of the analytical balance.",
+      "objectsInFocus": ["analytical_balance", "weighing_paper"]  
+    },
+    "9": {
+      "stepTitle": "Reading Weight of Powder Sample and Weighing Paper",
+      "description": "User anwers the stabilized reading onto the number pad.",
+      "objectsInFocus": ["analytical_balance", "weighing_paper", "number_pad"],
+      "mistakes": [ 
+        {
+            "mistakeDescription": "Read incorrect weight",
+            "context": "Number pad usage",
+            "correctAnswer": "0.5017 grams",
+            "category": "input_mistake",
+            "count": 0,
+            "userAnswers": []
+          }
+      ]
+    },
+    "10": {
+      "stepTitle": "Transfer Sample Powder Into Clean Beaker",
+      "description": "Animation showing us adding the sample powder from a diagonally folded filter paper into a beaker.",
+      "objectsInFocus": ["analytical_balance", "beaker", "diagonal_weighing_paper"]  
+    },
+    "11": {
+      "stepTitle": "Place Used Weighing Paper Back Onto Balance",
+      "description": "Animation showing us placing the weighing paper onto the balance and then closing the side window of the analytical balance.",
+      "objectsInFocus": ["analytical_balance", "weighing_paper"]  
+    },
+    "12": {
+      "stepTitle": "Reading Weight of Weighing Paper",
+      "description": "User anwers the stabilized reading onto the number pad.",
+      "objectsInFocus": ["analytical_balance", "weighing_paper", "number_pad"],
+      "mistakes": [ 
+        {
+            "mistakeDescription": "Read incorrect weight",
+            "context": "Number pad usage",
+            "correctAnswer": "0.0012 grams",
+            "category": "input_mistake",
+            "count": 0,
+            "userAnswers": []
+          }
+      ]
+    },
+    "13": {
+      "stepTitle": "Calculating Net Weight of Sample Powder",
+      "description": "User anwers the net weight of the sample powder obtained onto the number pad.",
+      "objectsInFocus": ["number_pad", "beaker"],
+      "mistakes": [ 
+        {
+            "mistakeDescription": "Calculate incorrect weight",
+            "context": "Number pad usage",
+            "correctAnswer": "0.5005 grams",
+            "category": "input_mistake",
+            "count": 0,
+            "userAnswers": []
+          }
+      ]
+    },
     "SAMPLE": {
         "stepTitle": "ENTER A GOOD TITLE THAT REPRESENTS WHAT THIS STEP IS ABOUT",
         "description": "DESCRIPTION FOR WHATS HAPPENING IN THIS STEP",
