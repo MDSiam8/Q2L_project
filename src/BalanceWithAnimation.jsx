@@ -6,9 +6,11 @@ import * as THREE from 'three';
 import BalanceReading from './BalanceReading';
 
 export default function BalanceWithAnimations() {
+    // const balance = useGLTF('./balanceUpdated.gltf');
     const balance = useGLTF('./balance_with_animations.gltf');
     const animations = useAnimations(balance.animations, balance.scene);
-
+    // balance.animations[1].duration = -1;
+    console.log(balance.scene);
     const { animationName } = useControls({
         animationName: { options: animations.names }
     });

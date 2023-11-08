@@ -22,7 +22,7 @@ const BalanceReading = () => {
   };
 
   return (
-    <Html position={[1.9, .86, 0]} transform rotation-y={Math.PI / 180 * 90} rotation-x={Math.PI / 180 * 0} scale={0.2} >
+    <Html occlude position={[1.9, .86, 0]} transform rotation-y={Math.PI / 180 * 90} rotation-x={Math.PI / 180 * 0} scale={0.2} >
       <div className="bg-blue-300 bg-opacity-40 w-60 text-white p-4 rounded-3xl">
         <h2 className="text-xl mb-2 whitespace-pre-wrap">{displayedWeight.toFixed(2)} g</h2>
         <button 

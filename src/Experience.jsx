@@ -23,6 +23,9 @@ import { Spatula } from './Spatula';
 import { Beaker } from './Beaker';
 import '../dist/output.css'
 import BalanceWithAnimations from './BalanceWithAnimation';
+import InventorySystem from './InventorySystem';
+import AnswerBox from './AnswerBox';
+import StepSevenComponent from './StepSevenComponent';
 export default function Experience() {
     const [htmlText, setHtmlText] = useState("Welcome to our very first lab using React3Fiber! To begin, click on any of the objects...");
     const controls = useRef();
@@ -41,13 +44,34 @@ export default function Experience() {
         setHtmlText("Greetings fellow student... I am the wise all-knowing fox -- And using my wisdom, I am pleased to inform you that... this is a short demo meant to show CUHK a preview of the future!");
     }
 
+    const [showInventory, setShowInventory] = useState(false);
+
+    const toggleInventory = () => {
+        setShowInventory(!showInventory);
+    };
+
+    const [showAnswerBox, setShowAnswerBox] = useState(true);
+
+    const handleCorrectAnswer = () => {
+        // This function will be triggered when the countdown finishes in the AnswerBox
+        setShowAnswerBox(false);
+    };
     return <>
-        <Perf position="top-left" />
+        <InventorySystem key={1} />
+        {showAnswerBox && (
+            // <AnswerBox
+            //   question="What is 2 + 2?"
+            //   correctAnswer="4"
+            //   onCorrectAnswer={handleCorrectAnswer}
+            // />
+            <AnswerBox question={"What is the reading on the analytical balance?"} correctAnswer={"10.00 g"} onCorrectAnswer={handleCorrectAnswer} />
+        )}
+        {/* <Perf position="top-left" /> */}
         <OrbitControls ref={controls} makeDefault />
 
         <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} shadow-normalBias={.04} />
         <ambientLight intensity={0.5} />
-
+        <StepSevenComponent />
         <mesh receiveShadow position-y={-1} rotation-x={- Math.PI * 0.5} scale={15}>
             <planeGeometry />
             <meshStandardMaterial color="greenyellow" />
@@ -79,10 +103,10 @@ export default function Experience() {
         <mesh>
             <GlassDropper />
         </mesh>
-        <mesh position={[0, 4.55, 0]} scale={1} onClick={handleChemistryClick}>
+        <mesh position={[0, 5.55, 0]} scale={1} onClick={handleChemistryClick}>
             <BalanceWithAnimations />
         </mesh>
-        <Html wrapperClass='label' position={[0, 8, 0]} center distanceFactor={15}>
+        <Html wrapperClass='label' position={[0, 8, 0]} center distanceFactor={15} occlude>
             <link href="./dist/output.css" rel="stylesheet" />
             {/* <div className={"text-current text-4xl italic font-light z-40 p-5 ring-emerald-400"}>yaee! you made it </div> */}
 
